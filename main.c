@@ -9,14 +9,14 @@ void AfficheTableau (char tableau[]);
 int main()
 {
 
-    char tableau[9]={'1','2','3','4','5','6','7','8','9',};
+    char tableau[9] = {'1','2','3','4','5','6','7','8','9',};
     int gagne = 0;
     int rejouer = 0;
     srand(time(NULL));
     int MIN = 1, MAX= 2, joueurCommence = (rand() % (MAX - MIN + 1)) + MIN;
     int choixCase;
     int i = 0;
-    int varjouer[9];
+    int varjouer[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     char prenomJ1[30];
     char prenomJ2[30];
     int continuer = 0;
@@ -41,15 +41,15 @@ int main()
                 if(joueurCommence == 1)
                 {
                     printf("A toi de jouer %s\n", prenomJ1);
-                    scanf("%ld", &choixCase);
+                    scanf("%i", &choixCase);
 
                 }
                 else
                 {
-                 printf("A toi de jouer %s\n", prenomJ2);
-                    scanf("%ld",&choixCase);
-
+                    printf("A toi de jouer %s\n", prenomJ2);
+                    scanf("%i",&choixCase);
                 }
+
                 if (varjouer[choixCase-1] == 1)
                 {
                     printf("Deja joue !\n\n");
@@ -64,28 +64,28 @@ int main()
                     }
                     else if(joueurCommence == 2)
                     {
-                        tableau[choixCase-1] = 'o';
+                       tableau[choixCase-1] = 'o';
                        varjouer[choixCase-1] = 1;
                     }
                 }
             } while(rejouer == 1);
-
-            AfficheTableau( tableau);
+            AfficheTableau(tableau);
             i++;
-            if(tableau[0]== 'o'&& tableau[1]=='o' && tableau[2]=='o' || tableau[0]=='o' && tableau[3]=='o' && tableau[6]=='o' || tableau[1]=='o' && tableau[4]=='o' && tableau[7]=='o' ||
-             tableau[2]== 'o'&& tableau[5]=='o' && tableau[8]== 'o'||  tableau[3]=='o' && tableau[4]== 'o'&& tableau[5]=='o' || tableau[6]=='o'&& tableau[7]=='o' && tableau[8]== 'o'||
-             tableau[0]== 'o'&& tableau[4]=='o' && tableau[8]=='o' ||  tableau[2]== 'o'&& tableau[4]=='o' && tableau[6]=='o' ||
-             tableau[0]== 'x'&& tableau[1]=='x' && tableau[2]=='x' || tableau[0]=='x' && tableau[3]=='x' && tableau[6]=='x' || tableau[1]=='x' && tableau[4]=='x' && tableau[7]=='x' ||
-             tableau[2]== 'x'&& tableau[5]=='x' && tableau[8]== 'x'||  tableau[3]=='x' && tableau[4]== 'x'&& tableau[5]=='x' || tableau[6]=='x'&& tableau[7]=='x' && tableau[8]== 'x'||
-             tableau[0]== 'x'&& tableau[4]=='x' && tableau[8]=='x' ||  tableau[2]== 'x'&& tableau[4]=='x' && tableau[6]=='x')
+            if(
+             (tableau[0] == 'o' && tableau[1] == 'o' && tableau[2] == 'o') || (tableau[0] == 'o' && tableau[3] == 'o' && tableau[6] =='o') || (tableau[1] =='o' && tableau[4] =='o' && tableau[7] == 'o') ||
+             (tableau[2] == 'o' && tableau[5] == 'o' && tableau[8] == 'o') || (tableau[3] == 'o' && tableau[4] == 'o' && tableau[5] =='o') || (tableau[6] =='o' && tableau[7] =='o' && tableau[8] == 'o') ||
+             (tableau[0] == 'o' && tableau[4] == 'o' && tableau[8] == 'o') || (tableau[2] == 'o' && tableau[4] == 'o' && tableau[6] =='o') ||
+             (tableau[0] == 'x' && tableau[1] == 'x' && tableau[2] == 'x') || (tableau[0] == 'x' && tableau[3] == 'x' && tableau[6] =='x') || (tableau[1] =='x' && tableau[4] =='x' && tableau[7] == 'x') ||
+             (tableau[2] == 'x' && tableau[5] == 'x' && tableau[8] == 'x') || (tableau[3] == 'x' && tableau[4] == 'x' && tableau[5] =='x') || (tableau[6] =='x' && tableau[7] =='x' && tableau[8] == 'x') ||
+             (tableau[0] == 'x' && tableau[4] == 'x' && tableau[8] == 'x') || (tableau[2] == 'x' && tableau[4] == 'x' && tableau[6] =='x'))
             {
                 gagne = 1;
                 if(joueurCommence == 1)
                 {
-                printf("Bravo vous avez gagnee %s\n", prenomJ1);
+                printf("Bravo vous avez gagné %s\n", prenomJ1);
                 }
                 else{
-                   printf("Bravo vous avez gagnee %s\n", prenomJ2);
+                   printf("Bravo vous avez gagné %s\n", prenomJ2);
                 }
             }
             else if (i == 9)
@@ -105,7 +105,7 @@ int main()
         }
 
         printf("\nVoulez vous rejouer 1:oui 2:non\n");
-        scanf("%ld", &continuer);
+        scanf("%i", &continuer);
     } while (continuer == 1);
     return 0;
 }
