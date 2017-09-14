@@ -1,6 +1,6 @@
 # Tic-tac-toe
 
-A tiy project when i started to learn programming in C
+A tiny project when i started to learn programming in C (made in 2008)
 
 ## Compile
 ```
